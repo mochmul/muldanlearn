@@ -14,6 +14,77 @@
     <title>My test page</title>
 
     <script async src="scripts/main.js"></script>
+
+    html {
+    font-size: 10px;
+    font-family: "Nunito Sans", sans-serif;
+    background-color: #829fb9;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #ff9500;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px 0;
+    color: #829fb9;
+    text-shadow: 3px 3px 1px black;
+    font-size: 60px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+p,
+li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+const myImage = document.querySelector("img");
+
+myImage.addEventListener("click", () => {
+    const mySrc = myImage.getAttribute("src");
+    if (mySrc === "images/icon_2.png") {
+        myImage.setAttribute("src", "images/icon.png");
+    } else {
+        myImage.setAttribute("src", "images/icon_2.png");
+    }
+});
+
+let myButton = document.querySelector("button");
+let myHeading = document.querySelector("h1");
+
+function setUserName() {
+    const myName = prompt("Please enter your name.");
+    if (!myName) {
+        setUserName();
+    } else {
+        localStorage.setItem("name", myName);
+        myHeading.textContent = `Color is cool, ${myName}`;
+    }
+}
+
+if (!localStorage.getItem("name")) {
+    setUserName();
+} else {
+    const storedName = localStorage.getItem("name");
+    myHeading.textContent = `Color is cool, ${storedName}`;
+}
+
+myButton.addEventListener("click", () => {
+    setUserName();
+});
 </head>
 
 <body>
