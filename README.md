@@ -3,22 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link href="style.css" rel="stylesheet" />
-
     <title>My test page</title>
-
-    <script async src="scripts/main.js"></script>
-
-    html {
-    font-size: 10px;
-    font-family: "Nunito Sans", sans-serif;
-    background-color: #829fb9;
-
 </head>
 
 <body>
@@ -44,38 +29,4 @@
 
         <button>Change user</button>
 </body>
-const myImage = document.querySelector("img");
-
-myImage.addEventListener("click", () => {
-    const mySrc = myImage.getAttribute("src");
-    if (mySrc === "images/icon_2.png") {
-        myImage.setAttribute("src", "images/icon.png");
-    } else {
-        myImage.setAttribute("src", "images/icon_2.png");
-    }
-});
-
-let myButton = document.querySelector("button");
-let myHeading = document.querySelector("h1");
-
-function setUserName() {
-    const myName = prompt("Please enter your name.");
-    if (!myName) {
-        setUserName();
-    } else {
-        localStorage.setItem("name", myName);
-        myHeading.textContent = `Color is cool, ${myName}`;
-    }
-}
-
-if (!localStorage.getItem("name")) {
-    setUserName();
-} else {
-    const storedName = localStorage.getItem("name");
-    myHeading.textContent = `Color is cool, ${storedName}`;
-}
-
-myButton.addEventListener("click", () => {
-    setUserName();
-});
 </html>
